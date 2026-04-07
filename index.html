@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikash Cafe - Best Cafe in Town</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8d7da" width="1200" height="600"/><circle fill="%23e9ecef" cx="200" cy="150" r="80"/><circle fill="%23dee2e6" cx="800" cy="200" r="100"/><rect fill="%23ced4da" x="900" y="300" width="200" height="150" rx="20"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #ff6b6b;
+        }
+
+        /* Page 1 - Cafe Details */
+        .cafe-details {
+            background: #f8f9fa;
+        }
+
+        .cafe-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .cafe-text h3 {
+            font-size: 2rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .cafe-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #6c757d;
+        }
+
+        .features {
+            list-style: none;
+        }
+
+        .features li {
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .features li::before {
+            content: "☕";
+            margin-right: 1rem;
+            color: #ff6b6b;
+        }
+
+        /* Page 2 - Instagram */
+        .insta-section {
+            background: linear-gradient(135deg, #8338ec, #fd1d1d);
+            color: white;
+            text-align: center;
+        }
+
+        .insta-link {
+            display: inline-block;
+            background: white;
+            color: #8338ec;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .insta-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Page 3 - About Me */
+        .about-me {
+            background: #fff;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        /* Page 4 - Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cafe-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Active page highlight */
+        nav a.active {
+            position: relative;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 4px;
+            background: white;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showPage('home')">🏠 Home</a></li>
+            <li><a href="#cafe" onclick="showPage('cafe')">☕ Cafe Details</a></li>
+            <li><a href="#insta" onclick="showPage('insta')">📸 Instagram</a></li>
+            <li><a href="#about" onclick="showPage('about')">✨ About Me</a></li>
+            <li><a href="#contact" onclick="showPage('contact')">📞 Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page 1: Hero/Home -->
+    <section id="home" class="hero active-page">
+        <div>
+            <h1>🌟 Vikash Cafe 🌟</h1>
+            <p>Your Perfect Spot for Delicious Coffee & Amazing Vibes</p>
+        </div>
+    </section>
+
+    <!-- Page 2: Cafe Details -->
+    <section id="cafe" class="cafe-details">
+        <div class="container">
+            <h2>🍵 About Our Cafe</h2>
+            <div class="cafe-info">
+                <div class="cafe-text">
+                    <h3>Welcome to Vikash Cafe!</h3>
+                    <p>Experience the best coffee and cozy atmosphere in town. We serve premium quality coffee, fresh pastries, and delicious snacks made with love.</p>
+                    
+                    <ul class="features">
+                        <li>☕ Premium Coffee Beans</li>
+                        <li>🍰 Fresh Daily Pastries</li>
+                        <li>🌿 Organic Ingredients</li>
+                        <li>📶 Professional Baristas</li>
+                        <li>💫 Cozy Ambiance</li>
+                        <li>⚡ Free WiFi</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); padding: 3rem; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                        <h3 style="color: #e91e63; margin-bottom: 1rem;">🕒 Open Hours</h3>
+                        <p style="font-size: 1.3rem; font-weight: bold;">Mon-Sat: 7AM - 11PM</p>
+                        <p style="font-size: 1.3rem; font-weight: bold;">Sunday: 8AM - 10PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Instagram -->
+    <section id="insta" class="insta-section">
+        <div class="container">
+            <h2>📱 Follow Us on Instagram</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem;">Check out our latest posts, delicious food pics, and cafe vibes!</p>
+            <a href="https://www.instagram.com/vikash.k.98_/?__pwa=1#" target="_blank" class="insta-link">
+                👉 Follow @vikash.k.98_ 👈
+            </a>
+            <p style="margin-top: 2rem; font-size: 1.2rem;">800+ Happy Customers | 500+ Posts | Daily Updates</p>
+        </div>
+    </section>
+
+    <!-- Page 4: About Me + Gallery -->
+    <section id="about" class="about-me">
+        <div class="container">
+            <h2>✨ About Me</h2>
+            
+            <!-- 4 Beautiful Images Gallery -->
+            <div class="gallery">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23ff9a56' width='400' height='300' rx='20'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em'>Coffee ☕</text></svg>" alt="Coffee">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23ff6b9d' width='400' height='300' rx='20'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em'>Pastries 🥐</text></svg>" alt="Pastries">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2357d9ff' width='400' height='300' rx='20'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em'>Cafe Vibes ✨</text></svg>" alt="Cafe Interior">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23ffeaa7' width='400' height='300' rx='20'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em'>Happy Customers 😊</text></svg>" alt="Customers">
+            </div>
+
+            <div class="about-text">
+                <p><strong>Hi, I'm Vikash! ☕</strong></p>
+                <p>Passionate coffee lover and cafe owner with 5+ years of experience. I started Vikash Cafe to bring the best coffee experience to our community. Every cup is brewed with love and every smile makes my day! Come visit us and be part of our cafe family. ❤️</p>
+                <p style="font-size: 1.5rem; color: #ff6b6b; font-weight: bold;">"Coffee is my love language!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Contact Page -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>📞 Get in Touch</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 3rem;">Ready to visit? We're waiting for you!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📍 Location</h4>
+                    <p>Your City, Main Market<br>Near Park Street</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 WhatsApp</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <h4>✉️ Email</h4>
+                    <p>vikashcafe@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vikash Cafe. Made with ❤️ for coffee lovers. ☕✨</p>
+    </footer>
+
+    <script>
+        // Smooth page switching
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active-page');
+                section.style.display = 'none';
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(pageId);
+            targetSection.style.display = 'block';
+            targetSection.classList.add('active-page');
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize first page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+
+        // Auto-hide nav on scroll down, show on scroll up
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) return;
+            
+            if (currentScroll > lastScroll && !nav.classList.contains('nav-hidden')) {
+                // Scrolling down
+                nav.classList.add('nav-hidden');
+            } else if (currentScroll < lastScroll && nav.classList.contains('nav-hidden')) {
+                // Scrolling up
+                nav.classList.remove('nav-hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</style>
+</body>
+</html>
+</body>
+</html>
